@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/books")
 public class BookRestController {
 
@@ -23,15 +24,17 @@ public class BookRestController {
     public List<Book> findAll(){
         return this.bookService.ListAll();
     }
-//
-//    @GetMapping
-//    public ResponseEntity<Book> findById(@PathVariable Long id){
-//        return this.bookService.findById(id)
-//                .map(book -> ResponseEntity.ok().body(book))
-//                .orElseGet(() -> ResponseEntity.badRequest().build());
-//    }
+
 
     //create
+
+    @PostMapping("/add")
+    public ResponseEntity<Book> save(@RequestBody BookDto bookDto){
+        return this.bookService.save(bookDto)
+                .map(book -> ResponseEntity.ok().body(book))
+                .orElseGet(() -> ResponseEntity.badRequest().build());
+    }
+
 
     //Todo
     //update

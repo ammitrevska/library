@@ -12,8 +12,8 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    private String Name;
-    private String Surname;
+    private String name;
+    private String surname;
 
     @ManyToOne
     private Country country;
@@ -22,8 +22,8 @@ public class Author {
     }
 
     public Author(String name, String surname, Country country) {
-        Name = name;
-        Surname = surname;
+        this.name = name;
+        this.surname = surname;
         this.country = country;
     }
 
@@ -36,19 +36,19 @@ public class Author {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 
     public Country getCountry() {

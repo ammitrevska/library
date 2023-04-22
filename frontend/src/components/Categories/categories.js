@@ -1,7 +1,5 @@
 import React from "react";
 
-//doesnt work
-
 
 const categories = (props) => {
     return (

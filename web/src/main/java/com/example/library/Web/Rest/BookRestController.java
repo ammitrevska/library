@@ -25,9 +25,15 @@ public class BookRestController {
         return this.bookService.ListAll();
     }
 
+    //getById
+    @GetMapping("/{id}")
+    public ResponseEntity<Book> findById(@PathVariable Long id) {
+        return this.bookService.findById(id)
+                .map(book -> ResponseEntity.ok().body(book))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     //create
-
     @PostMapping("/add")
     public ResponseEntity<Book> save(@RequestBody BookDto bookDto){
         return this.bookService.save(bookDto)

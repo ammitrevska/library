@@ -6,6 +6,7 @@ import com.example.library.Service.AuthorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -19,5 +20,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public List<Author> listAll() {
         return this.authorRepository.findAll();
+    }
+
+    @Override
+    public Optional<Author> findById(Long id) {
+        return this.authorRepository.findById(id);
     }
 }
